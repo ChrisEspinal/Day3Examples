@@ -166,3 +166,67 @@ document.getElementById("myFriend").addEventListener("click", function(){
 function test1(name1){
     alert("today" + name1);
 }
+
+////////////////
+
+
+// document.getElementById("myForm").addEventListener("submit", function(){
+//     alert("This form has been submitted.");
+//     event.preventDefault();
+// });
+
+document.getElementById("myForm").addEventListener("submit", function(){
+    //alert("This form has been submitted.");
+
+    /*
+    We want to get a value that been entered by a user in the form
+
+     */
+    // The following line gets a value from the input field
+    let username = document.getElementById("username").value;
+    //console.log(username.length);
+    //username = username.trim(); // to get rid of extra spaces front and back
+    
+    if(username == "" || username.length == 0){
+        //alert("Please enter a valid username");
+        document.getElementById("username").style.border = "thick solid red";
+        alert("Please enter a valid username");
+    }
+    else {
+        document.getElementById("username").style.backgroundColor = "white";  
+    }
+
+    //console.log(username.length);
+    //alert(username);
+
+    let confirmPassword =  document.getElementById("confirmPassword").value;
+    let password =  document.getElementById("password").value;
+
+    password = password.trim();
+    confirmPassword = confirmPassword.trim();
+
+    if(password != confirmPassword){
+        document.getElementById("password").style.border = "thick solid red";
+        document.getElementById("confirmPassword").style.border = "thick solid red";
+        alert("The password you entered do not match");
+    }else{
+        document.getElementById("password").style.border = "1px solid grey";
+        document.getElementById("confirmPassword").style.border = "1px solid grey";
+    }
+
+    let formTitle = document.getElementById("title");
+
+    formTitle.innerText = formTitle.innerText + " CMP 1000";
+    console.log(formTitle.innerText);
+
+
+    //adding a new div , used innerHTML to change HTML
+    let newDiv = document.getElementById("newDiv");
+
+    newDiv.innerText = newDiv.innerHTML + " CMP 1000";
+    console.log(newDiv.innerText);
+
+
+    event.preventDefault();
+});
+
